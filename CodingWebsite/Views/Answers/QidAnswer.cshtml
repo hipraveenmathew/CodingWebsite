@@ -1,0 +1,63 @@
+﻿@model CodingWebsite.ViewModels.QuestionAns
+@{
+ViewData["Title"] = "QidAnswer";
+Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+
+   <style type="text/css" media="screen">
+      #editor { 
+      position: absolute;
+      top: 130px;
+      right: 0;
+      bottom: 0;
+      left:850px;
+      width: 550px;
+      height:500px;
+      }
+      #save{
+      position: absolute;
+      top: 630px;
+      right: 0;
+      bottom: 0;
+      left:850px;
+      }
+      
+
+
+
+      
+   </style>
+
+   <div>The Question</div>
+   <div>@Model.TheQuestion</div>
+
+   <div id="editor" >  @Model.SAnswer   </div>
+
+@if (@Model.error != null)
+{
+    <div>Error</div>
+    <br />
+    <div>@Model.error</div>
+}
+
+    
+   <script src="~/js/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+   <script>
+      var editor = ace.edit("editor");
+     
+      editor.setTheme("ace/theme/monokai");
+      editor.session.setMode("ace/mode/java");
+      // pass options to ace.edit
+      
+        function fn1(){
+            console.log('in the fntn');
+            $("#hidAnswer1").val(editor.getSession().getValue());
+            $("#hidAnswer2").val(editor.getSession().getValue());
+        }
+   </script>
+
+  
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,50 @@
+﻿@model CodingWebsite.Models.UserDetails
+
+@{
+    ViewData["Title"] = "SelectRole";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="grad1">
+<h4>Enter the user details</h4>
+<hr />
+
+<div class="row"  >
+    <div class="col-md-4">
+        <form  action="/Questions/SelectRole" method="post" >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+                            </br>
+
+            <div class="form-group">
+                <label hidden asp-for="Email" class="control-label"></label>
+                <input hidden asp-for="Email" class="form-control" value=" " />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+                            </br>
+
+            <div class="form-group">
+                <label asp-for="UserRole" class="control-label"></label>
+                </br>
+                <input type="radio" asp-for="UserRole" value=1            id="Student" /> 
+                <label for="Student">        Student    </label>
+                </br>
+                <input type="radio" asp-for="UserRole" value=2            id="teacher" /> 
+                <label for="teacher">        teacher    </label>
+                <span asp-validation-for="UserRole" class="text-danger"></span>
+            </div>
+           </br>
+            <div class="form-group">
+                <input type="submit" value="Update"btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+</div>
+

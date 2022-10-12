@@ -1,0 +1,31 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-image: linear-gradient(white,#808080);
+}
+}
+#grad3 {
+    height: 650px;
+    background-color: blue; /* For browsers that do not support gradients */
+    background-image: linear-gradient(white, lightblue);
+}
+#grad4 {
+    height: 650px;
+    background-color: blue; /* For browsers that do not support gradients */
+    background-image: (lightgreen, green);
+}
+

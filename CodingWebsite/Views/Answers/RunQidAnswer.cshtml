@@ -1,0 +1,86 @@
+﻿@model CodingWebsite.ViewModels.QuestionAns
+@{
+ViewData["Title"] = "QidAnswer";
+Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+
+   <style type="text/css" media="screen">
+      #editor { 
+      position: absolute;
+      top: 130px;
+      right: 0;
+      bottom: 0;
+      left:850px;
+      width: 550px;
+      height:500px;
+      }
+      #save{
+      position: absolute;
+      top: 630px;
+      right: 0;
+      bottom: 0;
+      left:850px;
+      }
+
+      
+   </style>
+   <div>The Question</div>
+   <div>@Model.TheQuestion</div>
+
+   <div id="editor" >  @Model.SAnswer   </div>
+
+    <form  action="/Answers/RunQidAnswer" method="post" >
+     <input type="hidden" name="SAnswer" id="hidAnswer1" />
+          <input type="hidden" name="TheQuestion" id="TheQuestion" value="@Model.TheQuestion"/>
+               <input type="hidden" name="Id" id="Id" value="@Model.Id" />
+                    <input type="hidden" name="language" id="language" value="@Model.language"/>
+                         <input type="hidden" name="versionIndex" id="versionIndex" value="@Model.versionIndex"/>
+                              <input type="hidden" name="QuesId" id="QuesId" value="@Model.QuesId"/>
+                                   <input type="hidden" name="StudId" id="StudId" value="@Model.StudId"/>
+                                   <input type="hidden" name="CreatedAt" id="CreatedAt" value="@Model.CreatedAt"/>
+     <button type="submit" class="btn btn-primary" onclick="fn1()">Run</button>
+       
+ </form>
+ <form  action="/Answers/SaveQidAnswer" method="post" >
+     <input type="hidden" name="SAnswer" id="hidAnswer2" />
+        <input type="hidden" name="TheQuestion" id="TheQuestion" value="@Model.TheQuestion"/>
+               <input type="hidden" name="Id" id="Id" value="@Model.Id" />
+                    <input type="hidden" name="language" id="language" value="@Model.language"/>
+                         <input type="hidden" name="versionIndex" id="versionIndex" value="@Model.versionIndex"/>
+                              <input type="hidden" name="QuesId" id="QuesId" value="@Model.QuesId"/>
+                                   <input type="hidden" name="StudId" id="StudId" value="@Model.StudId"/>
+                                   <input type="hidden" name="CreatedAt" id="CreatedAt" value="@Model.CreatedAt"/>   
+     <button type="submit" class="btn btn-primary" onclick="fn1()">Save</button>
+       
+ </form>
+@if (@Model.error != null)
+{
+    <div>Error</div>
+    <div>@Model.error</div>
+}
+@if(@Model.Success==1)
+{
+    <div>@Model.StestCase test case passed out of @Model.Ttestcase</div>  
+    
+}
+
+    
+   <script src="~/js/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+   <script>
+      var editor = ace.edit("editor");
+      editor.setTheme("ace/theme/monokai");
+      editor.session.setMode("ace/mode/c_cpp");
+      // pass options to ace.edit
+      
+        function fn1(){
+            console.log('in the fntn');
+            $("#hidAnswer1").val(editor.getSession().getValue());
+            $("#hidAnswer2").val(editor.getSession().getValue());
+        }
+   </script>
+
+  
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<CodingWebsite.Models.ScoreCard>
+
+@{
+    ViewData["Title"] = "ScoreIndex";
+    Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+<div id="grad1">
+
+<h1>ScoreIndex</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.QuesHead)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Score)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.QuesHead)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Score)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            
+           
+        </tr>
+}
+    </tbody>
+</table>
+</div>
