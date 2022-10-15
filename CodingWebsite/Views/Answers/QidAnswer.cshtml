@@ -39,7 +39,32 @@ Layout = "~/Views/Shared/_LayoutStudent.cshtml";
     <br />
     <div>@Model.error</div>
 }
-
+ <form  action="/Answers/RunQidAnswer" method="post" >
+     <input type="hidden" name="SAnswer" id="hidAnswer1" />
+          <input type="hidden" name="TheQuestion" id="TheQuestion" value="@Model.TheQuestion"/>
+               <input type="hidden" name="Id" id="Id" value="@Model.Id" />
+                    <input type="hidden" name="language" id="language" value="@Model.language"/>
+                         <input type="hidden" name="versionIndex" id="versionIndex" value="@Model.versionIndex"/>
+                              <input type="hidden" name="QuesId" id="QuesId" value="@Model.QuesId"/>
+                                   <input type="hidden" name="StudId" id="StudId" value="@Model.StudId"/>
+                                   <input type="hidden" name="CreatedAt" id="CreatedAt" value="@Model.CreatedAt"/>
+                                   </br>
+     <button type="submit" class="btn btn-primary" onclick="fn1()" id="runcode">Run</button>
+       
+ </form>
+ <form  action="/Answers/SaveQidAnswer" method="post" >
+     <input type="hidden" name="SAnswer" id="hidAnswer2" />
+        <input type="hidden" name="TheQuestion" id="TheQuestion" value="@Model.TheQuestion"/>
+               <input type="hidden" name="Id" id="Id" value="@Model.Id" />
+                    <input type="hidden" name="language" id="language" value="@Model.language"/>
+                         <input type="hidden" name="versionIndex" id="versionIndex" value="@Model.versionIndex"/>
+                              <input type="hidden" name="QuesId" id="QuesId" value="@Model.QuesId"/>
+                                   <input type="hidden" name="StudId" id="StudId" value="@Model.StudId"/>
+                                   <input type="hidden" name="CreatedAt" id="CreatedAt" value="@Model.CreatedAt"/>   
+                                   </br>
+     <button type="submit" class="btn btn-primary" onclick="fn1()">Save</button>
+       
+ </form>
     
    <script src="~/js/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
    <script>
