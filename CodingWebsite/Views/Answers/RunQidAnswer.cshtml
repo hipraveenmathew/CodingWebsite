@@ -24,8 +24,13 @@ Layout = "~/Views/Shared/_LayoutStudent.cshtml";
 
       
    </style>
-   <div>The Question</div>
-   <div>@Model.TheQuestion</div>
+   <div>
+    <h2>The Question</h2>
+    </div>
+
+   <div>
+       <h3>@Model.TheQuestion</h3> 
+   </div>
 
    <div id="editor" >  @Model.SAnswer   </div>
 
@@ -38,9 +43,13 @@ Layout = "~/Views/Shared/_LayoutStudent.cshtml";
                               <input type="hidden" name="QuesId" id="QuesId" value="@Model.QuesId"/>
                                    <input type="hidden" name="StudId" id="StudId" value="@Model.StudId"/>
                                    <input type="hidden" name="CreatedAt" id="CreatedAt" value="@Model.CreatedAt"/>
+    <br />
+
      <button type="submit" class="btn btn-primary" onclick="fn1()">Run</button>
        
  </form>
+<br />
+
  <form  action="/Answers/SaveQidAnswer" method="post" >
      <input type="hidden" name="SAnswer" id="hidAnswer2" />
         <input type="hidden" name="TheQuestion" id="TheQuestion" value="@Model.TheQuestion"/>
@@ -53,9 +62,25 @@ Layout = "~/Views/Shared/_LayoutStudent.cshtml";
      <button type="submit" class="btn btn-primary" onclick="fn1()">Save</button>
        
  </form>
+ <br />
+<br />
+
 @if (@Model.error != null)
 {
-    <div>Error</div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+    <div >
+        <h2 color=red>Error</h2>
+    </div>
     <div>@Model.error</div>
 }
 @if(@Model.Success==1)
