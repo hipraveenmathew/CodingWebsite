@@ -129,7 +129,7 @@ namespace CodingWebsite.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,TeacherId,TheQuestion,Input1,Output1,Input2,Output2,Input3,Output3,TheAnswer,FinalDate,Score,Difficulty,StartedCount,ProcessingCount,CompletedCount,CreatedAt,UpdatedAt")] Questions questions)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,TeacherId,QuestionHeading,TheQuestion,Input1,Output1,Input2,Output2,Input3,Output3,TheAnswer,FinalDate,Score,Difficulty,StartedCount,ProcessingCount,CompletedCount,CreatedAt,UpdatedAt")] Questions questions)
         {
             if (id != questions.Id)
             {

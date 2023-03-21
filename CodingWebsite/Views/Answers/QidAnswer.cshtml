@@ -5,15 +5,7 @@ Layout = "~/Views/Shared/_LayoutStudent.cshtml";
 }
 
    <style type="text/css" media="screen">
-      #editor { 
-      position: absolute;
-      top: 130px;
-      right: 0;
-      bottom: 0;
-      left:850px;
-      width: 550px;
-      height:500px;
-      }
+      
       #save{
       position: absolute;
       top: 630px;
@@ -35,27 +27,17 @@ Layout = "~/Views/Shared/_LayoutStudent.cshtml";
 <div>
     <h3>@Model.TheQuestion</h3>
 </div>
-
-   <div id="editor" >  @Model.SAnswer   </div>
-
+<div id="editor" style="height:500px;width:500px;">  @Model.SAnswer   </div>
 @if (@Model.error != null)
 {
     <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+    
 
      <div >
-        <h2 color=red>Error</h2>
+        <h2 class="red-text" color=red;>Error</h2>
     </div>
     <div>@Model.error</div>
 }
-<br />
 
  <form  action="/Answers/RunQidAnswer" method="post" >
      <input type="hidden" name="SAnswer" id="hidAnswer1" />
@@ -83,6 +65,8 @@ Layout = "~/Views/Shared/_LayoutStudent.cshtml";
      <button type="submit" class="btn btn-primary" onclick="fn1()">Save</button>
        
  </form>
+ <br/>
+
     
    <script src="~/js/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
    <script>

@@ -317,6 +317,7 @@ namespace CodingWebsite.Controllers
                 var result = await response.Content.ReadAsStringAsync();
                 dynamic data2 = JObject.Parse(result);
                 string output=data2.output;
+                if(output!=null)
                 if (output.Contains("error") )
                 {
                     err= data2.output;

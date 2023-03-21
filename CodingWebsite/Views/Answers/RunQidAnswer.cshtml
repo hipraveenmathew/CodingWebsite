@@ -6,21 +6,9 @@ Layout = "~/Views/Shared/_LayoutStudent.cshtml";
 
    <style type="text/css" media="screen">
       #editor { 
-      position: absolute;
-      top: 130px;
-      right: 0;
-      bottom: 0;
-      left:850px;
-      width: 550px;
-      height:500px;
+      
       }
-      #save{
-      position: absolute;
-      top: 630px;
-      right: 0;
-      bottom: 0;
-      left:850px;
-      }
+     
 
       
    </style>
@@ -31,8 +19,25 @@ Layout = "~/Views/Shared/_LayoutStudent.cshtml";
    <div>
        <h3>@Model.TheQuestion</h3> 
    </div>
+   <br/>
+<div id="editor" style="height:500px;width:500px;">  @Model.SAnswer   </div>
+   <br/>   
+@if (@Model.error != null)
+{
 
-   <div id="editor" >  @Model.SAnswer   </div>
+
+
+    <div>
+        <h2 style="color: red;">Error</h2>
+    </div>
+    <div>@Model.error</div>
+}
+@if (@Model.Success == 1)
+{
+    <div>@Model.StestCase test case passed out of @Model.Ttestcase</div>
+
+}
+
 
     <form  action="/Answers/RunQidAnswer" method="post" >
      <input type="hidden" name="SAnswer" id="hidAnswer1" />
@@ -43,7 +48,6 @@ Layout = "~/Views/Shared/_LayoutStudent.cshtml";
                               <input type="hidden" name="QuesId" id="QuesId" value="@Model.QuesId"/>
                                    <input type="hidden" name="StudId" id="StudId" value="@Model.StudId"/>
                                    <input type="hidden" name="CreatedAt" id="CreatedAt" value="@Model.CreatedAt"/>
-    <br />
 
      <button type="submit" class="btn btn-primary" onclick="fn1()">Run</button>
        
@@ -63,31 +67,11 @@ Layout = "~/Views/Shared/_LayoutStudent.cshtml";
        
  </form>
  <br />
+ 
+
 <br />
 
-@if (@Model.error != null)
-{
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
 
-
-    <div >
-        <h2 color=red>Error</h2>
-    </div>
-    <div>@Model.error</div>
-}
-@if(@Model.Success==1)
-{
-    <div>@Model.StestCase test case passed out of @Model.Ttestcase</div>  
-    
-}
 
     
    <script src="~/js/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
